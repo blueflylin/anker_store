@@ -1,0 +1,69 @@
+doctype html
+html
+
+  head
+    title #{title}
+    meta(name="viewport",content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no")
+    link(href="#{config.staticRoot}deals/public/css/global.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/admin.css", rel="stylesheet")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.min.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.cookie.js")
+    script.
+      $(function() {
+        var data = !{JSON.stringify(data)};
+        var tabs = $(".tabs a"), pannel = $(".contents .module");
+        setData(data);
+      })
+      function setData(d) {
+        //配置商品数据
+        var t = "<table><tr><th></th><th>活动路径</th><th>下线时间</th></tr>";
+        window.index = 0;
+        for (var i in d) {
+           t +='<tr>';
+           t +="<td><a class='del_item' href='javascript:void(0);' onClick='del_item(this," + window.index + ")'>删除</span></td>";
+           t += "<td><input type='text' name='key" + window.index + "' value='" + i + "' /></td>";
+           t += "<td><input type='text' name='value" + window.index + "' value='" + d[i] + "' /></td>";
+           t +="</tr>";
+           window.index ++ 
+        }
+        t += "<tr><td colspan='3'><a class='add_item' href='javascript:void(0);' onClick='add_item(this)'>增加商品</a></td></tr></table>";
+        $("div.data").html(t);
+        $(".submit_data").show();
+      }
+
+      function add_item(e) {
+        var tr = $(e).parent().parent(),
+          table = tr.parent().parent(),
+          title = table.find('caption').html(),
+          index = table.find('tr').index(tr) - 1;
+          dom = '<tr>';
+          dom +='<td><a class="del_item" href="javascript:void(0);" onclick="del_item(this,'+index+')">删除</a></td>';
+          dom +='<td><input type="text" name="key' + window.index + '" value=""></td>';
+          dom +='<td><input type="text" name="value' + window.index + '" value=""></td>';
+          dom +='</tr>';
+          window.index ++ ;
+        $(dom).insertBefore(tr);
+      }
+
+      function del_item(e) {
+        var tr = $(e).parent().parent(),
+          table = tr.parent().parent(),
+          index = table.find('tr').index(tr);
+           window.index -- ;
+        table.find('tr').eq(index).remove();
+      }
+  body
+    include ../../views/header
+    .content
+      .tabs
+        a 商品编辑
+      .contents
+        .module.cur
+          form.submit_form(method="post")
+            input(type="hidden", name="type", value="data")
+            .list
+              div.data
+              input.submit_data(type="submit", value="提交数据包", style="display:none")
+
+    
+    include ../../views/footer

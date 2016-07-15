@@ -42,7 +42,7 @@ router.get('/anker_qc/admin', (req, res, next) => {
           qcData[new_data.country_code] = new_data.data;
           s3update('qcData.json', JSON.stringify(qcData));
         }
-        res.render('qc_admin', {
+        res.render('views/qc_admin', {
           title: 'Anker | qc',
           lang: qcLang,
           data: qcData
@@ -109,7 +109,7 @@ function redirect(req, res, next, country) {
     }
     isOver=true;
     var phoneList = ["Samsung Galaxy S6", "Samsung Galaxy Note Edge", "HTC One M9", "Sony Xperia Z5", "LG G4", "Motorola Moto X Style", "Google Nexus 6"];
-    res.render('qc', {
+    res.render('views/qc', {
       title: 'Anker | Quick Charge Revolution',
       dayIndex: dayIndex,
       isOver: isOver,

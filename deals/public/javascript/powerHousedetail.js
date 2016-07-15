@@ -8,7 +8,7 @@
 (function(){
   window.onload = function() {
     FastClick.attach(document.body);
-    //alert(navigator.platform);  
+    //alert(navigator.platform);
     subscribe();
   }
 
@@ -17,8 +17,9 @@
       screens.width = Math.min(window.screen.width, window.innerWidth);
       screens.height = Math.min(window.screen.height, window.innerHeight);
       screens.colorDepth = window.screen.colorDepth || 0;
+      var source = $.cookie('reg_source') || location.href;
       const body = {
-        'register_source': encodeURIComponent(location.href),
+        'register_source': encodeURIComponent(source),
         'invitation_code': inviter_code1,
         'nowDate' : new Date().getTime()
       };
@@ -48,7 +49,7 @@
                 res.inviter_count >=100 ? $(".index").eq(3).addClass("on") : '';
               }
             }
-           
+
         })
   }
   //countdown();
@@ -88,5 +89,3 @@
   });
 };
 })()
-
-

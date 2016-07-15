@@ -3,12 +3,12 @@ html
   head
     title= title
     meta(name="viewport",content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no")
-    link(href="/deals/css/global.css?#{verson}", rel="stylesheet")
-    link(href="/deals/css/header.css?#{verson}", rel="stylesheet")
-    link(href="/deals/css/pu_flash_deal.css?#{verson}", rel="stylesheet")
+    link(href="/deals/public/css/global.css?#{verson}", rel="stylesheet")
+    link(href="/deals/public/css/header.css?#{verson}", rel="stylesheet")
+    link(href="/deals/public/css/pu_flash_deal.css?#{verson}", rel="stylesheet")
     <meta name="fb:app_id" content="#{config.FB_APP_ID}" />
 
-    //- <meta name="og:url" content="/deals/ingress_giveaway" />
+    //- <meta name="og:url" content="/deals/public/ingress_giveaway" />
     //- <meta name="og:title" content="Enter The #AnkerIngress Giveaway Here!" />
     //- <meta name="og:description" content="Anker and Ingress have joined forces with a massive 300 portable charger giveaway. US only. Ends 3/20/2016." />
     //- <meta name="og:image" content="/deals/images/ingress/share.jpg" />
@@ -29,7 +29,7 @@ html
     div.pu-deal
       //- .page0(style="display:#{token?'':''}")
       div.banner
-        img(src="/deals/images/pu_flash_deal/banner.jpg?#{verson}").img
+        img(src="/deals/public/images/pu_flash_deal/banner.jpg?#{verson}").img
         div.text
           h2 POWER USERS
           div.info !{banner_text}
@@ -63,6 +63,7 @@ html
             //- - console.log(variant)
             - var dealPrice = item.deal_price || 0; var originPrice = item.price || 0;
             - var discount = dealPrice && originPrice ? Math.round((1 - dealPrice / originPrice) * 100) : 0; // 都有值才显示折扣
+            //- - var reg = new RegExp(amazon_domain + '/(review|gp/customer-reviews).*' + item.asin, 'i');
             li.box
               div.item
                 a(href="#{link}", target="_blank")
@@ -86,7 +87,9 @@ html
                         - else
                           | &nbsp;
                   //- p.ends Ends in #{item.end_at}
-              div.actions
+              div.actions(data-domain="#{amazon_domain}", data-asin="#{item.asin}")
+                //- - console.log(item.status);
+                //- - item.status = 'unused';item.user_code='ADFDAD-asdasd';
                 div.info
                   - if (item.status == 'not_started')
                     i.action.disable COMING SOON
@@ -128,12 +131,22 @@ html
                           p.tac
                             input(type="url", name="review_url", placeholder="Enter review URL", value="#{item.user_review_url || ''}").review-url
                             a.action(class="j-review", data-id="#{item.id}").underline SUBMIT
-            
+                  - else if (item.status == 'unused')
+                    - if (item.user_code)
+                      a(href="#{link}", target="_blank").highlight.go-amazon
+                        span BUY AT AMAZON <br>
+                      p.highlight.code (#{item.user_code})
+                    div.unused.tac
+                      h4 Friendly Reminder 
+                      p Unused discount codes may lead to removal of Power User status.
+                //- div.review.test
+                  input(type="url", name="review_url", placeholder="Enter review URL", value="#{item.user_review_url || ''}").review-url
+                  a.action(class="j-review", data-id="#{item.id}").underline SUBMIT
               - if (discount)
                 .discount
                   i #{discount + '%'}
                   i OFF
 
     include footer
-    script(src="/deals/javascript/pu_flash_deal.js?#{verson}")
+    script(src="/deals/public/javascript/pu_flash_deal.js?#{verson}")
     include ./includes/analytics.jade

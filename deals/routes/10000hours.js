@@ -37,7 +37,7 @@ router.get('*', function(req, res, next) {
       });
     }
     // console.log(caches);
-    var tpl = isMobile ? '10000hours_m' : '10000hours';
+    var tpl = isMobile ? 'views/10000hours_m' : 'views/10000hours';
     res.render(tpl, {
       title: '10000 hours - Anker',
       keywords: "battery charger, power bank, portable charger,external battery,battery pack,portable battery,mobile charger,portable battery,backup charger,backup battery,best battery,slim power bank,usb port,high volume",

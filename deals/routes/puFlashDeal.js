@@ -12,17 +12,33 @@ router.get('/pu_flash_deal', (req, res, next) => {
   getApi('/api/activities/flash_deal_show', {}, cookies).then(function(r) {
     var data = r && r.body || {};
     // console.log(data);
+    var PUCountrys = config.pu_countrys || [];
+    var profileCountry = data.country_code || 'US'; // PU以后台国家为准, 非: Cookie.load('country');
+    var puCountry = PUCountrys.filter((item, i) => {return -1 != item.codes.indexOf(profileCountry)});
+    puCountry = puCountry[0] && puCountry[0]['code'] || '';
+
     if (r.status === 402 || r.status === 401) {
       res.redirect('/login?back=poweruser');
     } else {
-      res.render('pu_flash_deal', {
-        verson: 1,
+      res.render('views/pu_flash_deal', {
+        verson: 2,
         title: 'Anker | PU FLASH DEAL',
         token: token,
         banner_text: `<p>At Anker, we’re committed to constant improvement through user feedback. Our Power User programme is one of the main ways we engage with users to learn how we can do better.</p>
         <p>As a Power User, you can sign up to receive free samples of existing and pre-release products in exchange for insightful and unbiased feedback.</p>
         <p>Try our products. Share your experience. Help us get it right.</p>`,
         data: data,
+        pu_country: puCountry,
+        amazon_domain: {
+          'US': 'amazon.com',
+          'CA': 'amazon.ca',
+          'UK': 'amazon.co.uk',
+          'FR': 'amazon.fr',
+          'IT': 'amazon.it',
+          'DE': 'amazon.de',
+          'ES': 'amazon.es',
+          'JP': 'amazon.co.jp',
+        }[puCountry],
       });
     }
   });

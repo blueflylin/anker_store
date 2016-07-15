@@ -1,0 +1,150 @@
+doctype html
+html
+  head
+    title= title
+    meta(name="viewport",content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no")
+    meta(name="Description" CONTENT="Sign up for a chance to win car chargers, usb chargers, wall chargers, portable chargers, and bluetooth speakers.")
+    link(href="#{config.staticRoot}deals/public/css/global.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/content/ingress2/default.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/header.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/dialog.css", rel="stylesheet")
+    script(src="#{config.staticRoot}deals/public/javascript/fastclick.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.min.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.cookie.js")
+    script(src="#{config.staticRoot}deals/public/javascript/dialog.js")
+    script(src="#{config.staticRoot}deals/public/javascript/comm.js")
+    
+    - var ogUrl = `${origin}/deals/ingress2`;
+    - var ogTitle = `${lang.shareTitle}`;
+    - var ogDesc = `${lang.shareFacebookDesc}`;
+    - var ogImg = `${origin}/deals/content/ingress2/images/facebookShare.jpg?verson=4`;
+    - var twDesc = `${lang.shareTwitterDesc}`;
+    - var twImg = `${origin}/deals/content/ingress2/images/twitterShare.jpg?verson=4`;
+    <meta name="fb:app_id" content="#{config.FB_APP_ID}" />
+    meta(name="og:url", content=ogUrl)
+    meta(name="og:title", content=ogTitle)
+    meta(name="og:description", content=ogDesc)
+    meta(name="og:image", content=ogImg)
+    meta(name="twitter:card", content="summary_large_image")
+    meta(name="twitter:site", content="@Ankerofficial")
+    meta(name="twitter:title", content=ogTitle)
+    meta(name="twitter:description", content=twDesc)
+    meta(name="twitter:image", content=twImg)
+    meta(name="twitter:url", content=ogUrl)
+    script.
+      var config = !{JSON.stringify(config)};
+      var token = "!{token}";
+      var origin = "!{origin}";
+      var countryId = "!{country}";
+    script(src="#{config.staticRoot}deals/content/ingress2/default.js")
+  body
+    include ../../views/header
+    div.ingress
+      div.banner
+        img(src="#{origin}/deals/content/ingress2/images/home.jpg?#{verson}", alt='Anker').imgpc
+      div.tips
+        p #{lang.tips1}
+        p #{lang.tips2}
+        p #{lang.tips3}
+        p #{lang.tips4}
+      div.prize
+        div.title 
+          img(src="#{origin}/deals/content/ingress2/images/title1_#{country=='DE'?'DE':'US'}.png")
+        ul
+          li 
+            img(src="#{origin}/deals/content/ingress2/images/1_#{country=='DE'?'DE':'US'}.jpg")
+          li
+            img(src="#{origin}/deals/content/ingress2/images/2_#{country=='DE'?'DE':'US'}.jpg")
+          li
+            img(src="#{origin}/deals/content/ingress2/images/3_#{country=='DE'?'DE':'US'}.jpg")
+        div.tips1 #{lang.prizeTips}
+      div(style="background-color:#eaeef0;")
+        div.line
+        div.ticket
+          div.ticketPackge
+            div.count 0
+            img(src="#{origin}/deals/content/ingress2/images/tick_#{country=='DE'?'DE':'US'}.png?#{verson}" style="display:block;width:140px;margin-bottom:.5rem")
+            img(src="#{origin}/deals/content/ingress2/images/count.png?#{verson}")
+          div
+            div.rule
+              div
+                img(src="#{origin}/deals/content/ingress2/images/title2_#{country=='DE'?'DE':'US'}.png")
+              div
+                p #{lang.rules1}
+                p #{lang.rules2}
+                p #{lang.rules3}
+                p #{lang.rules4}
+                p #{lang.rules5}
+                p #{lang.rules6}
+                p #{lang.rules7}
+                p #{lang.rules8}
+                p #{lang.rules9}
+                p #{lang.rules10}
+                p #{lang.rules11}
+            div.setup
+              div 
+                img(src="#{origin}/deals/content/ingress2/images/title3_#{country=='DE'?'DE':'US'}.png")
+              div
+                div.setup1
+                  div
+                    h4 #{lang.step} 1
+                    div.tips1#loginInfo 
+                      a#login   #{lang.login} 
+                      span(style="margin:0.5rem") #{lang.or} 
+                      a#register #{lang.register}
+                  div.setup2
+                    h4 #{lang.step} 2
+                    div #{lang.selectCountry}
+                    div
+                      .country
+                        .module-container
+                          ul#country
+                            li
+                              a#countryVal US
+                            li
+                              a UK
+                            li
+                              a DE
+                div.setup3
+                  h4 #{lang.step} 3
+                  div.follow
+                    div.tips1 
+                      div #{lang.followAnker}
+                      div #{lang.oneTicket}
+                    div
+                      
+                      a(href="https://plus.google.com/114663344536204280808/posts" target="_blank")
+                       i(data-type="anker_google").iconfont.google &#xe601;
+                      a(target="_blank" href="http://instagram.com/anker_official?ref=badge")
+                        i(data-type="anker_instagram").iconfont.ins &#xe604;
+                      a(target="_blank" href="https://twitter.com/Ankerofficial")
+                        i(data-type="anker_twitter").iconfont.twitter &#xe607;
+                      a(target="_blank" href="https://www.facebook.com/Anker.fans")
+                        i(data-type="anker_facebook").iconfont.facebook &#xe605;
+                  div.follow
+                    div.tips1 
+                      div #{lang.followIngress} 
+                      div #{lang.oneTicket}
+                    div
+                      a(target="_blank" href="https://plus.google.com/+Ingress")
+                        i(data-type="ingress_google").iconfont.google &#xe601;
+                      a(href="https://www.instagram.com/ingress.official/" target="_blank")
+                        i(data-type="ingress_instagram").iconfont.ins &#xe604;
+                      a(href="https://twitter.com/ingress" target="_blank")
+                        i(data-type="ingress_twitter").iconfont.twitter &#xe607;
+                      a(href="http://www.facebook.com/Ingress" target="_blank")
+                        i(data-type="ingress_facebook").iconfont.facebook &#xe605;
+
+                div.share
+                  div.tips1  #{lang.shareon} #{lang.twoTicket} 
+                  div 
+                    i(data-type="share_google").iconfont.google#googleShare &#xe601;
+                    i(data-type="share_facebook").iconfont.facebook#facebookShare &#xe605;
+                    - var twLink = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(twDesc);
+                    a(href=twLink, target='_blank')
+                      i(data-type="share_twitter").iconfont.twitter#twitterShare &#xe607;
+
+
+
+    include ../../views/footer
+    include ../../views/includes/analytics.jade

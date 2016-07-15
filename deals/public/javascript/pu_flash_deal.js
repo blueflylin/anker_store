@@ -33,6 +33,7 @@ $(function() {
     if ($btn.hasClass('disable')) {
       return;
     }
+    // return console.log($prods.find('.j-getcode').not($btn).addClass('disable'));
     $btn.addClass('disable');
     $.ajax({
       url: '/api/content?path=/api/activities/flash_deal_create',
@@ -44,7 +45,7 @@ $(function() {
       // data: datas,
     })
     .done(function(json) {
-      console.log(json);
+      // console.log(json);
       json = json || {};
       var err = json.error || json.exception;
       if (err) {
@@ -53,6 +54,7 @@ $(function() {
         $btn.hide();
         var $pre = $btn.siblings('.pre-hide').removeClass('pre-hide');
         $pre.find('.code').html('(' + json.code + ')');
+        $prods.find('.j-getcode').not($btn).addClass('disable');
       }
       $btn.removeClass('disable');
     })
@@ -68,15 +70,22 @@ $(function() {
   $prods.on('click', '.j-review', function() {
     var $btn = $(this);
     var url = $btn.siblings('input[name="review_url"]').val();
+    var actions = $btn.closest('div.actions').data();
+    var reg = new RegExp(actions.domain + '/(review|gp/review|gp/customer-reviews).*', 'i'); // + actions.asin
     var datas = {
       // token: token,
       activity_item_id: $btn.data('id'),
       review_url: url,
     }
+    // console.log('amazon.com/review/xx_' + actions.asin, reg, reg.test(url));
     if (!url) {
       alert('Please enter review URL.');
       return;
+    } else if (!reg.test(url)) {
+      alert('Wrong link, Please submit amazon review link agian.\n(example: https://www.amazon.com/review/YourReviewID).');
+      return;
     }
+    // return alert(1)
     if ($btn.hasClass('disable')) {
       return;
     }

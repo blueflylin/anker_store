@@ -170,7 +170,7 @@
           text-decoration: none;
           color: #3d3938;
         }
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: 773px) {
           &.cur{
             a {
               color: #00a7e1;
@@ -252,7 +252,7 @@
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 773px) {
   .Header {
     &-fixed{
       height:3.1rem;

@@ -1,0 +1,137 @@
+doctype html
+html
+  head
+    title= title
+    meta(name="viewport", content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no")
+    link(href="#{config.staticRoot}deals/public/css/global.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/content/fathers_day/default.css?#{verson}", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/header.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/dialog.css", rel="stylesheet")
+    script(src="#{config.staticRoot}deals/public/javascript/fastclick.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.min.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.cookie.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.rotate.min.js")
+    script(src="#{config.staticRoot}deals/public/javascript/dialog.js")
+    script(src="#{config.staticRoot}deals/public/javascript/comm.js")
+    - var ogUrl = `${origin}/deals/fathers_day${invitation_code && '?ic='+invitation_code || ''}`;
+    - var ogTitle = "Anker | Father’s Day";
+    - var ogDesc = "Grab the perfect Father’s Day gift at the perfect price with Anker. Plus a giveaway featuring $1000 plane tickets and hundreds of gadgets. Click here to learn more. ";
+    - var ogImg = `${origin}/deals/content/fathers_day/images/facebookShare.jpg?verson=1`;
+    - var twDesc = `So @AnkerOfficial have some great #FathersDayTech discounts right now & they’re giving out $1000 plane tickets!?`;
+    - var twImg = `${origin}/deals/content/fathers_day/images/twitterShare.jpg?verson=1`;
+    <meta name="fb:app_id" content="#{config.FB_APP_ID}" />
+    meta(name="og:url", content=ogUrl)
+    meta(name="og:title", content=ogTitle)
+    meta(name="og:description", content=ogDesc)
+    meta(name="og:image", content=ogImg)
+    meta(name="twitter:card", content="summary_large_image")
+    meta(name="twitter:site", content="@Ankerofficial")
+    meta(name="twitter:title", content=ogTitle)
+    meta(name="twitter:description", content=`${twDesc} ${ogUrl}`)
+    meta(name="twitter:image", content=twImg)
+    meta(name="twitter:url", content=ogUrl)
+    script.
+      var config = !{JSON.stringify(config)};
+      var invitation_code = "!{invitation_code}";
+      var origin = "!{origin}/deals/fathers_day";
+      var twshare = "!{twDesc}";
+      var nowDate = !{nowDate};
+    script(src="#{config.staticRoot}deals/content/fathers_day/default.js")
+  body
+    include ../../views/header
+    div.fathers
+      div.banner
+        img(src="#{config.staticRoot}deals/content/fathers_day/images/banner.jpg?#{verson}")
+      div.content
+        div.lottery
+          div.setup
+            h2 Father’s Day Spin-to-Win
+            .setup1
+              h3.userLoginTips#userLoginTips  Log In or Sign Up To Play
+              div#users
+              div.sfDiv
+                div.facebook#facebookLogin
+                  i.iconfont &#xe605;
+                div.google#googleLogin
+                  i.iconfont &#xe601;
+                div.iLogin(style="display:#{invitation_code!=''?'none':''}") LOGIN
+            .setup2(style="display:none")
+              div.userLoginTips 
+                h3 Refer friends for more tickets
+                p#shareUrl(style="text-decoration:underline")
+              div.sfDiv
+               - var twLink = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(twDesc);
+                div(style="display:inline-block")
+                  a(href=twLink, target='_blank').tweet#tweetShare
+                    i.iconfont &#xe607;
+                div(style="display:inline-block")
+                  div.facebook#facebookShare
+                    i.iconfont &#xe605;
+                div(style="display:inline-block")
+                  div.google#googleShare
+                    i.iconfont &#xe601;
+            div(style="display:none").countdown
+              h3 
+                div Spin-to-Win starts in 
+              div
+                div
+                  div#days 00
+                  div DAYS
+                div
+                  div#hours 000
+                  div HOURS
+                div
+                  div#minutes 00
+                  div MINUTES
+                div
+                  div#seconds 00
+                  div SECONDS
+          div
+            div.turntable
+              img(src="#{config.staticRoot}deals/content/fathers_day/images/turntable.png?#{verson}")
+              img(src="#{config.staticRoot}deals/content/fathers_day/images/jt.png?#{verson}").startimg
+              div.start 
+                div.count 0
+                div.tick Spin-to-Win 
+                div.tick Tickets
+                div 
+                  a.disable#start Click to Spin
+          div.rule
+            h3  Rules
+            p • No purchase necessary. 
+            p • Discounts and Father’s Day Spin-to-Win ticket collection starts June 12th 00:00 PDT, ends June 19th 23:59 PDT.
+            p • Father’s Day Spin-to-Win starts June 13th 00:00 PDT, ends June 19th 23:59 PDT.
+            p   • New users must link their social media. 
+            p • Participants will each receive one Father’s Day Spin-to-Win ticket when they log in or register and one additional ticket for each successful referral.
+            p • Father’s Day Spin-to-Win winners will see an on-screen notification and have their prize confirmed via email.
+            p • Flight ticket winners will each receive a $1,000 flight voucher for the airline of their choice. This can be used to buy any flight tickets for the selected airline.
+            p • Winners of Anker products will receive a $0.01 Amazon code for their prize.
+            p • US only.
+            p • Fake referrals are considered cheating. Users suspected of cheating will lose their Father’s Day Spin-to-Win tickets.
+            p • Only one account sign-up per person.
+            p • Anker reserves the right of final explanation on the giveaway.
+        div.charges
+          h3 Discounted Travel Tech
+          img(src="#{config.staticRoot}deals/content/fathers_day/images/super.png?#{verson}").super
+          ul.chargeList
+             each charge,index in data.charegrs
+                li
+                  div.info
+                    img(src='#{charge.imgurl}').bigImg
+                    div.desc !{charge.desc || '&nbsp;'}
+                    div.newprice #{charge.newprice}
+                    div.oldrice #{charge.oldprice} 
+                    div.name !{charge.name ? charge.name : "&nbsp;"}
+                    a(href="#{amazonTag ? charge.amazonUrl.replace(/&tag=[^&]+/, '&tag=' + amazonTag) : charge.amazonUrl}", target='_blank').btn Buy At Amazon
+          ul.chargeList.chargeMore
+             each charge,index in data1.charegrs
+                li
+                  div.info
+                    img(src='#{charge.imgurl}').bigImg
+                    div.desc !{charge.desc || '&nbsp;'}
+                    div.newprice #{charge.newprice}
+                    div.oldrice #{charge.oldprice}
+                    div.name !{charge.name ? charge.name : "&nbsp;"}
+                    a(href="#{amazonTag ? charge.amazonUrl.replace(/&tag=[^&]+/, '&tag=' + amazonTag) : charge.amazonUrl}", target='_blank').btn Buy At Amazon
+    include ../../views/footer
+    include ../../views/includes/analytics.jade

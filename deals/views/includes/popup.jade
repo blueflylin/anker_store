@@ -1,9 +1,9 @@
 //- include ./includes/popup.jade
 script.
   var config = !{JSON.stringify(config)};
-link(href="/deals/css/popup.css", rel="stylesheet")
+link(href="/deals/public/css/popup.css", rel="stylesheet")
 script(src="https://apis.google.com/js/platform.js")
-script(src="/deals/javascript/_popup.js")
+script(src="/deals/public/javascript/_popup.js")
 
 #popupsignup.PopupSignup
     .PopupSignup-mask()

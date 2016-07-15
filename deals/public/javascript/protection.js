@@ -26,13 +26,14 @@
       screens.width = Math.min(window.screen.width, window.innerWidth);
       screens.height = Math.min(window.screen.height, window.innerHeight);
       screens.colorDepth = window.screen.colorDepth || 0;
+      var source = $.cookie('reg_source') || location.href;
       $.ajax({
         method: "POST",
         url: "/api/content?path=/api/registrations/s7_activity",
         contentType: 'application/json',
         headers:{'_screens':JSON.stringify(screens)},
         data: JSON.stringify({
-        'register_source': encodeURIComponent(location.href),
+        'register_source': encodeURIComponent(source),
         'email': $("#userEmail").val() || localStorage.getItem('email'),
         'is_subscribe': true,
         'country_code':'US',
@@ -75,5 +76,3 @@
 }
 
 })()
-
-

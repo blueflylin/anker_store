@@ -1,0 +1,152 @@
+doctype html
+html
+  head
+    title= title
+    meta(name="viewport", content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no")
+    link(href="#{config.staticRoot}deals/public/css/global.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/content/fast_chargers_giveaway/default.css?#{verson}", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/header.css", rel="stylesheet")
+    script(src="#{config.staticRoot}deals/public/javascript/fastclick.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.min.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.cookie.js")
+    - var ogUrl = `${origin}/deals/fast_chargers_giveaway`;
+    - var ogTitle = "Anker | Fast Giveaway";
+    - var ogDesc = "Giveaways and buy one get one free deals on Qualcomm Quick Charge certified car chargers - all from America’s leading USB charging brand. Click here to learn more.";
+    - var ogImg = `${origin}/deals/content/fast_chargers_giveaway/images/facebookShare.jpg?verson=4`;
+    - var twDesc = "😲 @AnkerOfficial are giving out 400+ chargers in their #FastGiveaways!? Count me in http://bit.ly/FastGA";
+    - var twImg = `${origin}/deals/content/fast_chargers_giveaway/images/twitterShare.jpg?verson=4`;
+    <meta name="fb:app_id" content="#{config.FB_APP_ID}" />
+    meta(name="og:url", content=ogUrl)
+    meta(name="og:title", content=ogTitle)
+    meta(name="og:description", content=ogDesc)
+    meta(name="og:image", content=ogImg)
+    meta(name="twitter:card", content="summary_large_image")
+    meta(name="twitter:site", content="@Ankerofficial")
+    meta(name="twitter:title", content=ogTitle)
+    meta(name="twitter:description", content=twDesc)
+    meta(name="twitter:image", content=twImg)
+    meta(name="twitter:url", content=ogUrl)
+    script.
+      var config = !{JSON.stringify(config)};
+      var nowDate = !{nowDate};
+    script(src="#{config.staticRoot}deals/content/fast_chargers_giveaway/default.js?#{verson}")
+  body
+    include ../../views/header
+    div.fast
+      div.bg
+        img(src="content/fast_chargers_giveaway/images/bg.jpg")
+      div.page1
+        h4 
+          span.big THREE 
+          span.big FREE 
+          span CAR CHARGERS EVERY HOUR
+        div.left
+          h5 ENTER THE GIVEAWAY
+          div.login
+            a.btn#login LOG IN
+            a.btn.ml100#register SIGN UP
+          h5 WINNERS
+          div.winner 
+            div.timer 00:00:00
+            div.winnerlist
+              i(date-key="up").iconfont &#xe60f;
+              div(style="overflow:hidden")
+                ul#userList
+                  each user,index in users.winner
+                    li 
+                      div #{user.updated_at} PDT
+                      div #{user.email.substr(0,2)+"***"+user.email.substr(user.email.indexOf("@"))}
+                      div Prize: #{user.action}
+                  each user,index in users.winner
+                    li 
+                      - var nowDate = new Date(user.updated_at);
+                      div 05/#{nowDate.getDate()<10 ? "0"+nowDate.getDate():nowDate.getDate()}/2016 #{nowDate.getHours()<10?"0"+nowDate.getHours():nowDate.getHours()}:#{nowDate.getMinutes()<10?"0"+nowDate.getMinutes():nowDate.getMinutes()} PDT
+                      div #{user.email.substr(0,2)+"***"+user.email.substr(user.email.indexOf("@"))}
+                      div Prize: #{user.action}
+                  each user,index in users.winner
+                    li 
+                      - var nowDate = new Date(user.updated_at);
+                      div 05/#{nowDate.getDate()<10 ? "0"+nowDate.getDate():nowDate.getDate()}/2016 #{nowDate.getHours()<10?"0"+nowDate.getHours():nowDate.getHours()}:#{nowDate.getMinutes()<10?"0"+nowDate.getMinutes():nowDate.getMinutes()} PDT
+                      div #{user.email.substr(0,2)+"***"+user.email.substr(user.email.indexOf("@"))}
+                      div Prize: #{user.action}
+              i(date-key="down").iconfont &#xe60a;
+        div.right
+          h5 RULES
+          ul
+            li Offer runs May 12th - May 17th.
+            li New users should activate their account to participate in the giveaway.
+            li Three car chargers will be given out per hour.
+            li Prizes include PowerDrive+ 2, PowerDrive+ 1 and PowerDrive 2 Lite.
+            li Prizes will be allocated randomly to winners.
+            li Giveaway winners will be shown on the page and emailed within 48 hours of winning.
+            li Giveaway winners will receive a $0.01 code for their prize.
+            li Prizes are non-transferable and not redeemable for cash or other prizes.
+            li Open to US only.
+          div.shareDiv
+            h5 TELL YOUR FRIENDS
+            div.share
+              - var twLink = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(twDesc);
+              a(href=twLink, target='_blank')
+                i.iconfont &#xe607;
+            div.share.facebook
+              i.iconfont &#xe605;
+            div.share.google#google
+              i.iconfont &#xe601;
+      div.page2
+        div
+          div.title
+            h4
+              span BUY 
+              span.big ONE 
+              span GET 
+              span.big ONE FREE
+            p 
+              img(src="content/fast_chargers_giveaway/images/jt.png")
+              span BUY any of the following car chargers and get an additional one FREE.
+            p
+              img(src="content/fast_chargers_giveaway/images/jt.png") 
+              span Enter the FREE code at Amazon checkout and get your 2nd charger for $0.00.
+          ul.chargeList
+            -var tempAsin="";
+             each charge,index in data.amazonCart
+                li(class="#{(index == 1 || index ==5) ? 'rightLi':''}")
+                  div.hot #{charge.type}
+                  div.info
+                    img(src='#{charge.imgurl}').bigImg
+                    div.name #{charge.name}
+                    div.desc !{charge.desc || '&nbsp;'}
+                    -if(index%2==0) 
+                      div.price #{charge.newprice} 
+                    -if(index%2==1)
+                      div.code 
+                        p 
+                          strong FREE CODE:
+                        p #{charge.code}
+                    -if(index%2==1)
+                      a(href="http://www.amazon.com/gp/aws/cart/add.html?ASIN.1=#{charge.asin}&Quantity.1=1&ASIN.2=#{tempAsin}&Quantity.2=1&AssociateTag=fastgiveaways-20", target='_blank').btn.btnmr ADD TO AMAZON CART
+                    -tempAsin = charge.asin;
+                  div(style="display:#{index%2==0?'':'none'}").add
+                    img(src="content/fast_chargers_giveaway/images/add.jpg")
+      div.page3
+        div
+          div.title
+            h4
+              span More  
+              span.big CHOICE  
+              span More  
+              span.big DEALS
+            p Get limited-time discounts on the following car chargers.
+          ul.chargeList
+             each charge,index in data.charegrs
+                li(class="#{(index+1)%4 == 0 ? 'rightLi':''}")
+                  div.hot #{charge.type}
+                  div.info
+                    img(src='#{charge.imgurl}').bigImg
+                    div.name #{charge.name}
+                    div.desc !{charge.desc || '&nbsp;'}
+                    div.price 
+                      span.oldprice #{charge.oldprice} 
+                      span.newprice #{charge.newprice}
+                    a(href="http://www.amazon.com/gp/aws/cart/add.html?ASIN.1=#{charge.asin}&Quantity.1=1", target='_blank').btn ADD TO AMAZON CART
+    include ../../views/footer
+    include ../../views/includes/analytics.jade

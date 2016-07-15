@@ -1,0 +1,141 @@
+doctype html
+html
+  head
+    title= title
+    meta(name="viewport",content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no")
+    meta(name="Description" CONTENT="Sign up for a chance to win car chargers, usb chargers, wall chargers, portable chargers, and bluetooth speakers.")
+    link(href="#{config.staticRoot}deals/public/css/global.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/content/techie_summer_holiday/default.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/header.css", rel="stylesheet")
+    script(src="#{config.staticRoot}deals/public/javascript/fastclick.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.min.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.cookie.js")
+    script(src="#{config.staticRoot}deals/public/javascript/comm.js")
+    - var ogUrl = `${origin}/deals/techie_summer_holiday`;
+    - var ogTitle = "Anker | Summer Holiday";
+    - var ogDesc = "Get Set For Summer with FREE Tech from Anker. Just click my link and invite more friends to the party!";
+    - var ogImg = `${origin}/deals/content/techie_summer_holiday/images/facebookShare.jpg?verson=4`;
+    - var twDesc = "Big thanks to @AnkerOfficial for the free #SummerTech! Anyone can join 😁 https://www.anker.com/deals/tsh";
+    - var twImg = `${origin}/deals/content/techie_summer_holiday/images/twitterShare.jpg?verson=4`;
+    <meta name="fb:app_id" content="#{config.FB_APP_ID}" />
+    meta(name="og:url", content=ogUrl)
+    meta(name="og:title", content=ogTitle)
+    meta(name="og:description", content=ogDesc)
+    meta(name="og:image", content=ogImg)
+    meta(name="twitter:card", content="summary_large_image")
+    meta(name="twitter:site", content="@Ankerofficial")
+    meta(name="twitter:title", content=ogTitle)
+    meta(name="twitter:description", content=twDesc)
+    meta(name="twitter:image", content=twImg)
+    meta(name="twitter:url", content=ogUrl)
+    script.
+      var config = !{JSON.stringify(config)};
+      var inviter_code = "!{invitation_code}";
+      var token = "!{token}";
+      var nowDate = !{nowDate};
+      var origin = "!{origin}/deals/tsh";
+    script(src="#{config.staticRoot}deals/content/techie_summer_holiday/default.js")
+  body
+    include ../../views/header
+    div.powerhouse
+      .page1
+        div.banner
+          img(src="content/techie_summer_holiday/images/banner.jpg?#{verson}" alt="Sign up for a chance to win car chargers, usb chargers, wall chargers, portable chargers, and bluetooth speakers." title="Anker summer giveaway event").banner_pc
+          img(src="content/techie_summer_holiday/images/banner_m.jpg?#{verson}" alt="Sign up for a chance to win car chargers, usb chargers, wall chargers, portable chargers, and bluetooth speakers." title="Anker summer giveaway event").banner_m
+        div.setup
+          div.login
+            div.setupTips
+              h3 STEP 1
+              div.userLoginTips#userLoginTips #{invitation_code!=''?'Link your social media to help friends earn free tech':'Log in or link your social media'}
+              div#users
+            div.sfDiv
+              div.facebook#facebookLogin
+                  i.iconfont &#xe605;
+                div.google#googleLogin
+                  i.iconfont &#xe601;
+                div.iLogin(style="display:#{invitation_code!=''?'none':''}") LOGIN
+                
+          div.share
+            div.setupTips
+              h3 STEP 2
+              div 
+                p.userLoginTips Invite your friends by sharing your unique link
+                p#shareUrl(style="text-decoration:underline")
+            div.sfDiv
+              - var twLink = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(twDesc);
+              div(style="display:inline-block")
+                a(href=twLink, target='_blank').tweet#tweetShare
+                  i.iconfont &#xe607;
+                span Share to Twitter
+              div(style="display:inline-block")
+                div.facebook#facebookShare
+                  i.iconfont &#xe605;
+                span Share to Facebook
+              div(style="display:inline-block")
+                div.google#googleShare
+                  i.iconfont &#xe601;
+                span Share to Google+
+        .registcount
+          h3.title FRIENDS JOINED
+          div#registLine
+            .setup
+              .line
+            .index
+              div 5
+              div 
+                img(src="content/techie_summer_holiday/images/1.jpg?#{verson}")
+                div
+                  div PowerDrive 2 Lite 
+                  div (RRP $8.99)
+            .index
+              div 10
+              div
+                img(src="content/techie_summer_holiday/images/2.jpg?#{verson}")
+                div
+                  div  40W 5-Port Wall Charger 
+                  div  (RRP $25.99)
+            .index
+              div 30
+              div
+                img(src="content/techie_summer_holiday/images/3.jpg?#{verson}")
+                div
+                  div Astro E5
+                  div  (RRP $35.00)
+            .index
+              div 100
+              div 
+                img(src="content/techie_summer_holiday/images/4.jpg?#{verson}")
+                div
+                  div Summer Bundle  
+                  div (RRP $220.95)
+          div.noDate 
+            span#noDate.col No 
+            span friends have joined..Yet! 
+            span.col Keep checking
+        div.time
+          div
+            div.countdown
+              h3 TIME REMAINING: 
+              div
+                div#hours 000
+                div HOURS
+              div
+                div#minutes 00
+                div MINUTES
+              div
+                div#seconds 00
+                div SECONDS
+            .rule
+              h3 RULES:
+              ul
+                li Summer Bundle: PowerCore 20100, PowerPort 4, Custom Travel Case, 2ft Micro USB cable, PowerPort Solar Lite, 3ft Micro USB cable, PowerDrive+ 2, Premium Stereo Bluetooth 4.0 Speaker (A3143), PowerLine Lightning Cable (6ft).
+                li Starts May 23rd 00:00 PDT, ends May 29th 23:59 PDT.
+                li Participants will only receive the top reward for their level of referrals.
+                li Successful participants will have their reward confirmed via email after the event has ended and before June 3rd .
+                li US only.
+                li New users must link their social media.
+                li Fake referrals are considered cheating, users suspected of cheating will have their referrals removed.
+                li Only one account sign-up per person.
+                li Anker reserves the right of final explanation on the giveaway.
+    include ../../views/footer
+    include ../../views/includes/analytics.jade

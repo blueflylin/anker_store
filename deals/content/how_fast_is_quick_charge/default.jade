@@ -1,0 +1,125 @@
+doctype html
+html
+  head
+    title= title
+    meta(name="viewport",content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no")
+    meta(name="Description" CONTENT="Sign up for a chance to win car chargers, usb chargers, wall chargers, portable chargers, and bluetooth speakers.")
+    link(href="#{config.staticRoot}deals/public/css/global.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/content/how_fast_is_quick_charge/default.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/header.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/dialog.css", rel="stylesheet")
+    script(src="#{config.staticRoot}deals/public/javascript/fastclick.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.min.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.cookie.js")
+    script(src="#{config.staticRoot}deals/public/javascript/dialog.js")
+    script(src="#{config.staticRoot}deals/public/javascript/comm.js")
+    
+    - var ogUrl = `${origin}/deals/how_fast_is_quick_charge`;
+    - var ogTitle = "";
+    - var ogDesc = "";
+    - var ogImg = `${origin}/deals/content/how_fast_is_quick_charge/images/facebookShare.jpg?verson=4`;
+    - var twDesc = "";
+    - var twImg = `${origin}/deals/content/how_fast_is_quick_charge/images/twitterShare.jpg?verson=4`;
+    <meta name="fb:app_id" content="#{config.FB_APP_ID}" />
+    meta(name="og:url", content=ogUrl)
+    meta(name="og:title", content=ogTitle)
+    meta(name="og:description", content=ogDesc)
+    meta(name="og:image", content=ogImg)
+    meta(name="twitter:card", content="summary_large_image")
+    meta(name="twitter:site", content="@Ankerofficial")
+    meta(name="twitter:title", content=ogTitle)
+    meta(name="twitter:description", content=twDesc)
+    meta(name="twitter:image", content=twImg)
+    meta(name="twitter:url", content=ogUrl)
+    script.
+      var config = !{JSON.stringify(config)};
+      var token = "!{token}";
+      var origin = "!{origin}";
+      var nowDate = !{nowDate};
+    script(src="#{config.staticRoot}deals/content/how_fast_is_quick_charge/default.js")
+  body
+    include ../../views/header
+    div.swap
+      div.banner
+        img(src="#{config.staticRoot}deals/content/how_fast_is_quick_charge/images//bg.jpg").bg
+        img(src="#{config.staticRoot}deals/content/how_fast_is_quick_charge/images//bg_m.jpg").bg_m
+      div(style="background-color:#111113")
+        div.tips
+          div
+            h3 Qualcomm Quick Charge
+            p To celebrate Quick Charge 3.0 devices finally hitting the streets, we’re teaming up with Jonathan Morrison to make sure everyone gets the fastest possible charging speeds.
+            p We've discounted all of our QC 3.0 tech, we're giving away 100 PowerCore 10000 portable chargers with QC 3.0 and one lucky person will even win a smartphone of their choice! All you need to do is enter below.
+          div
+            iframe(width="496" height="280" src="#{powerline[0].youtube}" frameborder="0" allowfullscreen="true")
+      div(style="background-color:#f2f2f2")
+        div.login
+          div.left
+            h3(style="#{isShow==true?'display:block':'display:none'}") Giveaway Countdown:
+            div(style="#{isShow==true?'display:block':'display:none'}").countdown
+              div
+                div#days 00
+                div DAYS
+              div
+                div#hours 000
+                div HOURS
+              div
+                div#minutes 00
+                div MINUTES
+              div
+                div#seconds 00
+                div SECONDS
+            h3 How To Win:
+            ul
+              li No purchase necessary.
+              li Register on anker.com and subscribe to Jonathan Morrison then click ‘Get Codes’ to enter.
+              li From July 9th to July 24th, discounted Anker tech is available via discount codes displayed at the bottom of the page.
+              li 
+                span From July 9th to July 17th, entries are accepted for the draw to win a Quick Charge 3.0 phone of your choice and 1 of 100 
+                a(href="https://www.amazon.com/Anker-PowerCore-Qualcomm-Portable-Compatible/dp/B01CZV9FUW?ie=UTF8&camp=217145&creative=399373&creativeASIN=B01CZV9FUW&linkCode=as2&m=A294P4X9EWVXLJ&ref_=sr_1_10&sr=1-10&tag=ianker-20" target="_blank") 
+                  strong PowerCore 
+                  span 10000
+                span  portable chargers.
+              li PowerCore portable chargers are awarded in the form of $0.01 Amazon vouchers.
+              li Winners will be contacted by July 19th via email.
+              li US only.
+              li Anker reserves the right of final explanation on the giveaway.
+
+          div.right
+            div.one
+              div 1. 
+                a#login Log In  
+                span  or  
+                a#register Register
+            div.three
+              div 2. Subscribe to Jonathan Morrison's YouTube
+              div.share
+                div#tweetShare
+                  a(href='https://www.youtube.com/user/tldtoday', target='_blank')
+                    i.iconfont &#xe606;
+                    span(style="color:white;margin-left:1rem;font-size:16px") Subscribe Now
+            div.four
+              div 
+                span 3. See the discounts codes 
+                span(style="#{isShow==true?'display:inline':'display:none'}") + Enter Giveaway
+              div 
+                input(type="button" value="Get Codes")#getCode
+              div.error
+      div.charges
+        div
+          h3  Hot Deals
+          p  Our most popular Quick Charge chargers
+          ul.chargeList
+            each charge,index in powerline
+              li(class="#{index%3==1 ?'empty' : ''}")
+                div.info
+                  div.img
+                    img(src='#{charge.imgurl}').bigImg
+                  div
+                    div.name !{charge.name ? charge.name : "&nbsp;"}
+                    div.price
+                      div.newprice #{charge.newprice}
+                      div.oldprice #{charge.oldprice}
+                    div(style="#{!charge.code?'visibility:hidden':''}").code Promo Code: !{charge.code || '&nbsp;'}
+                    a(href="#{amazonTag ? charge.amazonUrl.replace(/&tag=[^&]+/, '&tag=' + amazonTag) : charge.amazonUrl}", target='_blank').btn BUY AT AMAZON
+    include ../../views/footer
+    include ../../views/includes/analytics.jade

@@ -1,0 +1,126 @@
+doctype html
+html
+  head
+    title= title
+    meta(name="viewport",content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no")
+    link(href="#{config.staticRoot}deals/public/css/global.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/content/anker_pokemongo/default.css?#{verson}", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/header.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/dialog.css", rel="stylesheet")
+    script(src="#{config.staticRoot}deals/public/javascript/fastclick.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.min.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.cookie.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.rotate.min.js")
+    script(src="#{config.staticRoot}deals/public/javascript/dialog.js")
+    script(src="#{config.staticRoot}deals/public/javascript/comm.js")
+    - var ogUrl = `${origin}/deals/pokessentials`;
+    - var ogTitle = "Anker | Pokessentials";
+    - var ogDesc = "Anker is giving trainers the chance to get their hands on an Essential Trainer Pack, designed to keep you at the top of your game. Click here to learn more.";
+    - var ogImg = `${origin}/deals/content/anker_pokemongo/images/facebookShare.jpg?verson=1`;
+    - var twDesc = `Can’t wait to get my hands on an @AnkerOfficial #PokemonGo Trainer Pack 😍  #Pokessentials http://bit.ly/29DvrJk`;
+    - var twImg = `${origin}/deals/content/anker_pokemongo/images/twitterShare.jpg?verson=1`;
+    <meta name="fb:app_id" content="#{config.FB_APP_ID}" />
+    meta(name="og:url", content=ogUrl)
+    meta(name="og:title", content=ogTitle)
+    meta(name="og:description", content=ogDesc)
+    meta(name="og:image", content=ogImg)
+    meta(name="twitter:card", content="summary_large_image")
+    meta(name="twitter:site", content="@Ankerofficial")
+    meta(name="twitter:title", content=ogTitle)
+    meta(name="twitter:description", content=`${twDesc} ${ogUrl}`)
+    meta(name="twitter:image", content=twImg)
+    meta(name="twitter:url", content=ogUrl)
+    script.
+      var config = !{JSON.stringify(config)};
+      var origin = "!{origin}/deals/anker_pokemongo";
+      var twshare = "!{twDesc}";
+      var countryId = "!{country}";
+    script(src="#{config.staticRoot}deals/content/anker_pokemongo/default.js")
+  body
+    include ../../views/header
+    div.ingress
+      div.banner
+        img(src="#{config.staticRoot}deals/content/anker_pokemongo/images/bg.jpg?#{verson}", alt='Anker').imgpc
+        img(src="#{config.staticRoot}deals/content/anker_pokemongo/images/bg_m.jpg?#{verson}", alt='Anker').imgmb
+        div.homeTips 
+          h3 TRAINER PACK 
+          h3 GIVEAWAY
+          h4 Power Yourself to Poké-Glory
+          p Gotta catch 'em all? You will with our Essential Trainer Pack.
+          p Win a bundle of top-selling Anker tech to make you 
+          p the very best trainer, like no one ever was.
+          p There are 200 up for grabs, so join in and get ready to be the best.
+          div
+            iframe(width="317" height="160" src="#{youtubeUrl}" frameborder="0" allowfullscreen="true")
+        div.ticketCount(style="display:none")
+          div.count 0 
+      div.bg
+        div.share
+          div.shareMenu ENTER HERE
+          div 
+            div.setp1
+              span STEP 1
+              div.setp1Info
+                a#login   Log In 
+                span or 
+                a#register Register
+          div
+            div.setp3
+              span STEP 2
+              div.first
+                div.setpTips 
+                  p Follow us on Twitter,
+                  p Facebook or Google+
+                div.shareBtn#setp2
+                  a(target="_blank" href="https://twitter.com/Ankerofficial").tweet
+                    i(data-type="anker_twitter").iconfont &#xe607;
+                  a(target="_blank" href="https://www.facebook.com/Anker.fans").facebook
+                    i(data-type="anker_facebook").iconfont &#xe605;
+                  a(href="https://plus.google.com/114663344536204280808/posts" target="_blank").google
+                    i(data-type="anker_google").iconfont &#xe601;
+                 
+          div
+            div.setp3
+              span STEP 3
+              div.first
+                div.setpTips 
+                  p Share on Twitter,
+                  p Facebook or Google+
+                div.shareBtn#setp3
+                  - var twLink = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(twDesc);
+                    a(target="_blank" href=twLink).tweet
+                      i(data-type="share_twitter").iconfont &#xe607;
+                    a.facebook
+                      i(data-type="share_facebook").iconfont &#xe605; 
+                    a.google
+                      i(data-type="share_google").iconfont &#xe601;   
+          div
+            div.setp4
+              span STEP 4
+              a.btn ENTER GIVEAWAY
+        div.rule
+          div.ruleMenu RULES
+          ul
+            li Complete the steps on the right to enter the giveaway.
+            li No purchase necessary.
+            li There are 200 Essential Trainer Packs up for grabs.
+            li
+              span Essential Trainer Packs include 
+              a(href="https://www.amazon.com/Anker-PowerCore-Ultra-Compact-Fast-Charging-Technology/dp/B01CU1EC6Y?ie=UTF8&camp=217145&creative=399373&creativeASIN=B01CU1EC6Y&linkCode=as2&m=A294P4X9EWVXLJ&ref_=sr_1_10&sr=1-10&tag=ianker-20" target="_blank") PowerCore 5000 
+              span (with Anker Micro USB cable),
+              br 
+              a(href="https://www.amazon.com/Anker-PowerLine-Certified-Lightning-Charging/dp/B013JMZRIA?ie=UTF8&camp=217145&creative=399373&creativeASIN=B013JMZRIA&linkCode=as2&m=A294P4X9EWVXLJ&ref_=sr_1_10&sr=1-10&tag=ianker-20" target="_blank") PowerLine Lightning 
+              span (Red, 3ft) and 
+              a(href="https://www.amazon.com/Anker-SoundBuds-Headphones-Cancellation-Sweatproof/dp/B016Y8XJCW?ie=UTF8&camp=217145&creative=399373&creativeASIN=B016Y8XJCW&keywords=bluetooth%20earbuds&kwr_id=356&linkCode=as2&m=A294P4X9EWVXLJ&qid=1468465327&ref_=sr_1_10&sr=1-10&tag=ianker-20" target="_blank") SoundBuds Sport.
+            li The Essentials Giveaway will run from July 16th to July 24th.
+            li Winners will be contacted via email on July 25th.
+            li
+              span Winners will be asked to share their delivery information and the Essential Trainer 
+              br 
+              span Packs will be shipped directly to the provided address.
+            li Winners will receive their Essential Trainer Pack before August 31st.
+            li US only.
+          div
+        
+    include ../../views/footer
+    include ../../views/includes/analytics.jade

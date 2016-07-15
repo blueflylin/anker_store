@@ -1,0 +1,158 @@
+doctype html
+html
+  head
+    title= title
+    meta(name="viewport", content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no")
+    link(href="#{config.staticRoot}deals/public/css/global.css?#{verson}", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/mothers_day.css?#{verson}", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/header.css?#{verson}", rel="stylesheet")
+    - var ogUrl = `${origin}/deals/mothers_day`;
+    - var ogTitle = "Anker | Mother's Day";
+    - var ogDesc = "Click here for exclusive discounts and giveaways, just in time for Mother's Day. #AnkerGifts";
+    - var ogImg = `${origin}/deals/public/images/mothers_day/facebookShare.jpg?verson=3`;
+    - var twDesc = "Great discounts on #MothersDay #AnkerGifts! 🎁🎁🎁  Plus 5 free Robotic Vacuums every day 😃 http://bit.ly/1WHgBX2";
+    - var twImg = `${origin}/deals/public/images/mothers_day/twitterShare.jpg?verson=3`;
+    <meta name="fb:app_id" content="#{config.FB_APP_ID}" />
+    meta(name="og:url", content=ogUrl)
+    meta(name="og:title", content=ogTitle)
+    meta(name="og:description", content=ogDesc)
+    meta(name="og:image", content=ogImg)
+    meta(name="twitter:card", content="summary_large_image")
+    meta(name="twitter:site", content="@Ankerofficial")
+    meta(name="twitter:title", content=ogTitle)
+    meta(name="twitter:description", content=twDesc)
+    meta(name="twitter:image", content=twImg)
+    meta(name="twitter:url", content=ogUrl)
+
+    script(src="#{config.staticRoot}deals/public/javascript/fastclick.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.min.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.cookie.js")
+    script.
+      var config = !{JSON.stringify(config)};
+      var imagePath = "!{origin}/deals/public/images/mothers_day";
+    script(src="#{config.staticRoot}deals/public/javascript/mothers_day.js?#{verson}")
+  body
+    include header
+    div.mothers
+      div
+        img(src="/deals/public/images/mothers_day/bg.jpg").banner
+      div.mailDiv
+        div
+          h3 MOTHER'S DAY
+            span Send Love, Get Gifts
+          p.desc-txt.auto-show Send an Anker E-card to get exclusive discounts on the best Mother's Day gifts!
+          p.send-tip.auto-hide#j-sendAnother Send to Another Person
+          img(src="/deals/public/images/mothers_day/card/01.jpg")#selectCard
+          div.smail
+            img(src="/deals/public/images/mothers_day/card/01.jpg" data-img="card/01.jpg").on
+            img(src="/deals/public/images/mothers_day/card/02.jpg" data-img="card/02.jpg")
+            img(src="/deals/public/images/mothers_day/card/03.jpg" data-img="card/03.jpg").mr
+          div.smail
+            img(src="/deals/public/images/mothers_day/card/04.jpg" data-img="card/04.jpg")
+            img(src="/deals/public/images/mothers_day/card/05.jpg" data-img="card/05.jpg")
+            img(src="/deals/public/images/mothers_day/card/06.jpg" data-img="card/06.jpg").mr
+        div
+          div.auto-show
+            img(src="/deals/public/images/mothers_day/form_img.jpg").form-img
+            div.cnt
+              p From
+              div 
+                input(type="email" placeholder="Your Email" autocomplete="off")#from
+              p.login 
+                span Already has acccout?please 
+                a(href="/login?back=deals/mothers_day") login
+              p To
+              div
+                input(type="email" placeholder="Recipients Email" autocomplete="off")#to
+              //- p Message
+              //- div
+              //-   textarea(placeholder="Enter a Brief Message")#emailContent
+              p Captcha
+              div
+                input(type="text" placeholder="Type the Text" autocomplete="off")#code
+                img#imgcode
+              div
+                a.btn SEND NOW
+              
+          div.cnt.sent-success.auto-hide
+            h3 E-card sent successfully！ 
+            p.to-email to:
+              span#j-toEmail
+            div.msg
+              p.up-to We'll let you know by email before May 12th if you've won a RoboVac 20.
+              p.up-to Now claim your discount of up to 
+              p.discount $60 off!
+            p
+              a.blink START SHOPPING
+
+              
+          div.cnt
+            div.rules
+              h4 RULES AND TERMS
+              ul
+                li Starts May 4th, 00:00 PDT, ends May 8th, 24:00 PDT.
+                li Daily winners will have their prize confirmed via email between May 9th -12th. 
+                li US Only.
+                li Non-anker.com members will be automatially registered.
+                li Anker reserves the right of final explanation to the giveaway.
+
+      div.imglist#prods
+        div.leftImg
+          img(src="/deals/public/images/mothers_day/t2100.jpg")
+          div.lock
+            span Discounted already! No code needed.
+            a(href="http://www.amazon.com/dp/B01AUHOY90/ref=sr_1_10?ie=UTF8&sr=1-10&m=A294P4X9EWVXLJ&tag=anker_google_competitors-20&linkCode=as2&camp=217145&creative=399373&creativeASIN=B01AUHOY90" target="_blank") BUY AT AMAZON
+        div.rightImg
+          div
+            img(src="/deals/public/images/mothers_day/2.jpg")
+            div.lock
+              span Discounted already! No code needed.
+              a(href="http://www.amazon.com/dp/B01B2N3O7Y/ref=sr_1_10?ie=UTF8&sr=1-10&m=A294P4X9EWVXLJ&tag=anker_google_competitors-20&linkCode=as2&camp=217145&creative=399373&creativeASIN=B01B2N3O7Y" target="_blank") BUY AT AMAZON
+          div
+            img(src="/deals/public/images/mothers_day/3.jpg")
+            div.lock
+              span Promo Code: LOVEMUM3
+              a(href="http://www.amazon.com/dp/B01B2P1JKQ/ref=sr_1_10?ie=UTF8&sr=1-10&m=A294P4X9EWVXLJ&tag=anker_google_competitors-20&linkCode=as2&camp=217145&creative=399373&creativeASIN=B01B2P1JKQ" target="_blank") BUY AT AMAZON
+      div.imglist
+        div.leftImg1
+          img(src="/deals/public/images/mothers_day/4.jpg")
+          div.lock
+            span Promo Code: LOVEMUM2
+            a(href="http://www.amazon.com/dp/B01B2PDJEK/ref=sr_1_10?ie=UTF8&sr=1-10&m=A294P4X9EWVXLJ&tag=anker_google_competitors-20&linkCode=as2&camp=217145&creative=399373&creativeASIN=B01B2PDJEK" target="_blank") BUY AT AMAZON
+        div.middleImg
+          div
+            img(src="/deals/public/images/mothers_day/a3143.jpg")
+            div.lock
+              span Promo Code: LOVEMUM4
+              a(href="http://www.amazon.com/dp/B0107WH8Q4/ref=sr_1_10?ie=UTF8&sr=1-10&m=A294P4X9EWVXLJ&tag=anker_google_competitors-20&linkCode=as2&camp=217145&creative=399373&creativeASIN=B0107WH8Q4&keywords=bluetooth+speaker&qid=1462241470&kwr_id=322" target="_blank") BUY AT AMAZON
+          div
+            img(src="/deals/public/images/mothers_day/a7909.jpg" style="margin-top:-.4rem;")
+            div.lock
+              span Promo Code: LOVEMUM5
+              a(href="http://www.amazon.com/dp/B00RMYQU06/ref=sr_1_10?ie=UTF8&sr=1-10&m=A294P4X9EWVXLJ&tag=anker_google_competitors-20&linkCode=as2&camp=217145&creative=399373&creativeASIN=B00RMYQU06&keywords=bluetooth+speaker&qid=1462241510&kwr_id=325" target="_blank") BUY AT AMAZON
+        div.rightImg1
+          img(src="/deals/public/images/mothers_day/t2400.jpg")
+          div.lock
+            span Promo Code: LOVEMUM6
+            a(href="http://www.amazon.com/dp/B01AUHKZCU/ref=sr_1_10?ie=UTF8&sr=1-10&m=A294P4X9EWVXLJ&tag=anker_google_competitors-20&linkCode=as2&camp=217145&creative=399373&creativeASIN=B01AUHKZCU" target="_blank") BUY AT AMAZON
+      div.footer.clearfix
+        div.tips
+          h4 RULES AND TERMS
+          ul
+            li Starts May 4th, 00:00 PDT, ends May 8th, 24:00 PDT.
+            li Daily winners will have their prize confirmed via email between May 9th -12th. 
+            li US Only. 
+            li Non-anker.com members will be automatically registered.  
+            li Anker reserves the right of final explanation to the giveaway.
+          div.shareDiv
+            div.title SHARE US
+            div.share
+              - var twLink = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(twDesc);
+              a(href=twLink, target='_blank')
+                i.iconfont &#xe607;
+            div.share.facebook
+              i.iconfont &#xe605;
+            div.share.google#google
+              i.iconfont &#xe601;
+    include footer
+    include ./includes/analytics.jade

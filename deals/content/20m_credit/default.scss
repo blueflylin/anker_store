@@ -1,0 +1,345 @@
+
+body{
+	margin:0;
+	padding:0;
+	color:#3d3938;
+	font-size:14px;
+	font-family:Whitney,Helvetica,Arial,sans-serif;
+}
+.fathers{
+	background-image: url(images/bg.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-color:#e9eaec;
+  .banner{
+  	display:none;
+  }
+  >div:nth-child(2){
+  	background: white;
+    background-image: url(images/bg.png);
+    background-size:100%;
+  }
+	.rule{
+			padding:400px 0 2rem 0;
+		  display:table;
+		  width:1000px;
+		  margin: 0 auto;
+		  >div{
+		  	display:table-cell
+		  }
+		  >div:nth-child(1){
+		  	width:70%;
+		  	background-color:#f4f4f4;
+		  	vertical-align:top;
+		  	li{
+		  		line-height:2.5rem;
+		  		font-size:20px;
+		  		list-style:none;
+		  	}
+				.sfDiv{
+					text-align:center;
+					span{
+						display:block;
+						width:4rem;
+						font-size:12px;
+					}
+				}
+				.login{
+					display:inline-block;
+					width:45%;
+				}
+				p{
+					margin:0;
+					padding:0;
+				}
+				.share{
+					display:inline-block;
+					vertical-align:top;
+					width:55%;
+					.setupTips{
+						width:300px;
+					}
+				}
+				.facebook,.google,.tweet,.iLogin{
+					cursor:pointer;
+					width:4.2rem;
+					height:4.2rem;
+					line-height:4.2rem;
+					border-radius:5rem;
+					display:inline-block;
+					margin-right:2rem;
+					text-align:center;
+					vertical-align:top;
+				}
+				.facebook{
+					background-color:#3a589a;
+					cursor:pointer;
+				}
+				.google{
+					background-color:#e14929;
+					i{
+						font-size:2.2rem;
+					}
+				}
+				.tweet,.iLogin{
+					background-color:#52a8e9;
+				}
+				.iLogin{
+					color:white;
+					font-size:1rem;
+					background-color:#00a8e1;
+				}
+				.iconfont{
+					font-size:1.9rem;
+					color:white;
+				}
+				.seeRules{
+					text-align:center;
+					margin: 1.2rem 0 1.2rem -2rem;
+					a{
+						color:#00a8e1;
+						text-decoration:underline;
+						font-size:1.2rem;
+					}
+				}
+		  }
+		  >div:nth-child(2){
+		  	width:30%;
+		  	background-color:#c8ccd0;
+		  	>div:last-child{
+		  		text-align:center;
+		  		>div{
+		  			display:inline-block;
+		  			vertical-align:top;
+		  			margin-left:1rem;
+		  			font-size:3rem;
+		  			>div{
+		  				font-size:20px;
+		  				line-height:3rem;
+		  			}
+		  		}
+		  	}
+		  	.tb{
+		  		display: inline-block;
+			    width: 5rem;
+			    height: 9rem;
+			    background: white;
+			    line-height: 9rem;
+			    text-align: center;
+			    color:black;
+			    font-size: 7rem;
+			    margin-right:.5rem;
+		  	}
+		  	.credit{
+		  		color:black;
+		  		font-size:1.2rem;
+		  	}
+		  }
+	}
+	.charges{
+		margin-top:3rem;
+		h3{
+			max-width:1000px;
+			font-size:20px;
+			margin:0 auto 1rem auto;
+			.small{
+				font-weight:normal;
+			}
+		}
+		>div{
+			max-width:1000px;
+			margin:0 auto;
+			.more{
+				li{
+					width:490px;
+					.img{
+						img{
+							width:320px;
+						}
+					}
+					.title{
+						font-size: 1.2rem;
+					}
+					>div{
+						width:320px;
+						margin:0 auto;
+					}
+				}
+				li:nth-child(1){
+					margin-right:10px;
+				}
+				li:nth-child(2){
+					margin-left:10px;
+					margin-right:0;
+				}
+			}
+			ul{
+				margin:1.3rem 0 0 0;
+				padding:0;
+				li{
+					margin:0;
+					padding:0 0 2rem 0;
+					width:235px;
+					display:inline-block;
+					text-align:center;
+					background-color:white;
+					>div{
+						width:200px;
+						margin:0 auto;
+					}
+					.img{
+						img{
+							width:200px;
+						}
+					}
+					.btn{
+						text-align:center;
+						a{
+							display:inline-block;
+							background-color:#00a8e1;
+							color:white;
+							width:80%;
+							padding:.5rem 0;
+							font-size:13px;
+						}
+					}
+					.title{
+						font-size: 13px;
+				    line-height: 1.5rem;
+				    height: 3rem;
+				    overflow: hidden;
+				    margin: .6rem;
+				    color: #3d3938;
+					}
+					.description{
+						font-size:13px;
+				    line-height: 1.17rem;
+				    height: 3.5rem;
+				    overflow: hidden;
+				    margin: 0 .6rem 1rem;
+				    color: #9e9f9f;
+					}
+					.attr{
+						img{
+							width:1rem;
+							height:.5rem;
+							margin-right:.5rem;
+						}
+					}
+				}
+				li:nth-child(1),li:nth-child(2),li:nth-child(3){
+					margin-right:20px;
+				}
+			}
+		}
+	}
+	.searchMore{
+		padding:2rem 0;
+		background-color:#e9eaec;
+		text-align:center;
+		a{
+			color:#00a8e1;
+			font-size:1.2rem;
+			text-decoration:underline;
+		}
+	}
+	.rule1{
+		background-color:#f4f4f4;
+		>div{
+			padding:2rem 0;
+			max-width:1000px;
+			margin:0 auto;
+			.ruleTitle{
+				font-size:20px;
+			}
+			ul{
+				padding:0;
+				font-size:13px;
+				li{
+					list-style-position:inside;
+				}
+			}
+		}
+	}
+		@media only screen and (max-width: 768px) {
+			background-image:none;
+			.banner{
+		  	display:block;
+		  	background-color:white;
+		  	img{
+		  		width:100%;
+		  	}
+		  }
+			.rule{
+				display:block;
+				width:auto;
+				padding:0;
+				>div{
+					display:block;
+				}
+				>div:nth-child(1){
+					width:100%;
+					ul{
+						margin:0 1rem;
+						padding:0;
+					}
+					li{
+						font-size:14px;
+					}
+					.seeRules{
+						padding-bottom:1rem;
+						margin:1.2rem 0 0 0;
+					}
+				}
+				>div:nth-child(2){
+					width:auto;
+					.dollars{
+						position: absolute;
+				    margin-top: 3.9rem;
+				    margin-left: -1rem !important;
+					}
+				}
+			}
+			.charges{
+				h3{
+					margin-left:1rem;
+				}
+				>div{
+					ul{
+						margin:0;
+						li{
+							width:50%;
+							>div{
+								width:auto;
+							}
+							.img{
+								img{
+									width:100%;
+								}
+							}
+						}
+						li:nth-child(1),li:nth-child(2),li:nth-child(3){
+							margin-right:0;
+						}
+					}
+					.more{
+						li{
+							width:auto;
+							display:block;
+						}
+						li:nth-child(1){
+							margin-right:0;
+						}
+						li:nth-child(2){
+							margin-left:0;
+						}
+					}
+				}
+			}
+			.rule1{
+				>div{
+					padding:2rem 1rem;
+				}
+			}
+	}
+}

@@ -43,7 +43,7 @@ router.get('/powerline_lightning', (req, res, next) => {
         }
       })
     }
-    res.render('powerline', { title: 'Anker | PowerLine Lightning', products: prod, country: country });
+    res.render('views/powerline', { title: 'Anker | PowerLine Lightning', products: prod, country: country });
   });
 
 });

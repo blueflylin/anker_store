@@ -75,14 +75,14 @@ var dialog = {
   },
   showSuccess: function(content) {
     var article = document.createElement('article');
-    article.className = 'tips';
+    article.className = 'Diagtips';
     article.innerHTML = '<div class="ta_c"><i class="iconfont">&#xe63b;</i><p class="mt_5">' + content + '</p></div>';
     document.body.appendChild(article);
     this._remove(article, 2000);
   },
   showError: function(content) {
     var article = document.createElement('article');
-    article.className = 'tips';
+    article.className = 'Diagtips';
     article.innerHTML = '<div class="ta_c"><i class="iconfont">&#xe63e;</i><p class="mt_5">' + content + '</p></div>';
     document.body.appendChild(article);
     this._remove(article, 3000);

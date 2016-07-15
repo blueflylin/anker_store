@@ -202,11 +202,13 @@ $(function(){
     },
     third_party_login: function(user, type) {
       var self = this;
+      var source = $.cookie('reg_source') || location.href;
+      // return console.log(source);
       var body = {
-          "register_source": encodeURIComponent(location.href),
-          "user": user
+          'register_source': encodeURIComponent(source),
+          'user': user
         }, order_id = user.order_id;
-      if (!user.token && order_id != "") {
+      if (!user.token && order_id != '') {
         body.order_id = order_id;
       }
       $.ajax({
@@ -316,12 +318,14 @@ $(function(){
     } else if (password.length < 8 || password.length > 20) {
       return alert('Password must be 8 - 20 digits, letters or characters.');
     }
+    var source = $.cookie('reg_source') || location.href;
+    // return console.log(source);
     var body = {
-      'register_source': encodeURIComponent(location.href),
+      'register_source': encodeURIComponent(source),
       'email': email,
       'password': password,
       'is_subscribe': true,
-      'country_code': AppActions.getCountry() || 'US',
+      // 'country_code': AppActions.getCountry() || 'US',
       'invitation_code': AppActions.getUrlParam().invite
     };
     var user = AppActions.getUser();

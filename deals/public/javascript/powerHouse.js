@@ -19,8 +19,9 @@
       screens.width = Math.min(window.screen.width, window.innerWidth);
       screens.height = Math.min(window.screen.height, window.innerHeight);
       screens.colorDepth = window.screen.colorDepth || 0;
+      var source = $.cookie('reg_source') || location.href;
       const body = {
-        'register_source': encodeURIComponent(location.href),
+        'register_source': encodeURIComponent(source),
         'email': userEmail,
         'is_subscribe': true,
         'sub_type':'share'
@@ -39,7 +40,7 @@
             }*/
             if(!res.is_active && !res.invitation_code){
               alert('Dear ianker.com customer, please merge your account to anker.com. To do so, go to the anker.com login page and enter your email address and original password. Your accounts will be merged and you will get your unique referral code.');
-              
+
             }else{
               localStorage.setItem("is_active",res.is_active);
               location.href=location.protocol+"//" + location.host +"/deals/powerhousedetail?invitation_code="+res.invitation_code;
@@ -91,8 +92,9 @@
   };
   function third_party_login(user){
     user.inviter_code = inviter_code;
+    var source = $.cookie('reg_source') || location.href;
     var body = {
-      "register_source": encodeURIComponent(location.href),
+      "register_source": encodeURIComponent(source),
       "user": user
     };
     $.ajax({
@@ -103,7 +105,7 @@
     }).done(function(json){
       if (json.token) {
         localStorage.setItem("is_active","true");
-       
+
         AppActions.signOut();
         json.loginType = 'third_party_login';
         AppActions.signIn(json);
@@ -111,7 +113,7 @@
         AppActions.setCart(json.item_count);
         location.href=location.protocol+"//" + location.host +"/deals/powerhousedetail?invitation_code="+json.invitation_code;
       }
-    })    
+    })
   };
   function getCode(){
     $.ajax({

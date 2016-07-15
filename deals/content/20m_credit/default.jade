@@ -1,0 +1,137 @@
+doctype html
+html
+  head
+    title= title
+    meta(name="viewport", content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no")
+    link(href="#{config.staticRoot}deals/public/css/global.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/content/20m_credit/default.css?#{verson}", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/header.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/dialog.css", rel="stylesheet")
+    script(src="#{config.staticRoot}deals/public/javascript/fastclick.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.min.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.cookie.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.rotate.min.js")
+    script(src="#{config.staticRoot}deals/public/javascript/dialog.js")
+    script(src="#{config.staticRoot}deals/public/javascript/comm.js")
+    - var ogUrl = `${origin}/deals/20m_credit${invitation_code && '?ic='+invitation_code || ''}`;
+    - var ogTitle = "Anker | 20 Million Happy Users Celebration";
+    - var ogDesc = "Receive $1 for every friend you invite to Anker! There’s no limit to how much you can earn and your friends get $30 when they join. What are you waiting for? Click here now.";
+    - var ogImg = `${origin}/deals/content/20m_credit/images/facebookShare.jpg?verson=1`;
+    - var twDesc = `I get $1 when you sign up & you get $30 for signing up! Come on! Thanks to @AnkerOfficial #Anker20M`;
+    - var twImg = `${origin}/deals/content/20m_credit/images/twitterShare.jpg?verson=1`;
+    <meta name="fb:app_id" content="#{config.FB_APP_ID}" />
+    meta(name="og:url", content=ogUrl)
+    meta(name="og:title", content=ogTitle)
+    meta(name="og:description", content=ogDesc)
+    meta(name="og:image", content=ogImg)
+    meta(name="twitter:card", content="summary_large_image")
+    meta(name="twitter:site", content="@Ankerofficial")
+    meta(name="twitter:title", content=ogTitle)
+    meta(name="twitter:description", content=`${twDesc} ${ogUrl}`)
+    meta(name="twitter:image", content=twImg)
+    meta(name="twitter:url", content=ogUrl)
+    script.
+      var config = !{JSON.stringify(config)};
+      var invitation_code = "!{invitation_code}";
+      var origin = "!{origin}/deals/20m_credit";
+      var twshare = "!{twDesc}";
+    script(src="#{config.staticRoot}deals/content/20m_credit/default.js")
+  body
+    include ../../views/header
+    div.fathers
+      div.banner
+        img(src="content/20m_credit/images/bg_m.png")
+      div
+        div.rule
+          div
+            ul
+              li
+                span#tips1 We’re celebrating over 20 million happy Anker users!
+              li 
+                span#tips2 Log In or Sign Up and get $1 for every friend who joins the party!
+            div.sfDiv.setup1
+                div.facebook#facebookLogin
+                  i.iconfont &#xe605;
+                div.google#googleLogin
+                  i.iconfont &#xe601;
+                div.iLogin(style="display:#{invitation_code!=''?'none':''}") Log In
+            div.setup2(style="display:none")
+              p#shareUrl(style="text-decoration:underline;text-align:center;margin:0 0 1rem 1rem")
+              div.sfDiv
+                 - var twLink = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(twDesc);
+                  div(style="display:inline-block")
+                    a(href=twLink, target='_blank').tweet#tweetShare
+                      i.iconfont &#xe607;
+                  div(style="display:inline-block")
+                    div.facebook#facebookShare
+                      i.iconfont &#xe605;
+                  div(style="display:inline-block")
+                    div.google#googleShare
+                      i.iconfont &#xe601;
+            div.seeRules
+              a#setRule Click For Rules
+          div
+            div 
+              div.dollars(style="margin-top:3.9rem") $
+              div
+                div(style="margin-top:1rem") YOU HAVE
+                div#creditCount
+                  span.tb#one 0
+                  span.tb#two 0
+                div.credit  Anker Dollars
+      div.charges
+        h3 
+          span ANKER 
+          span.small STORE
+        div
+          ul.more
+            each charge,index in data
+                li
+                  div
+                    div.img
+                      img(src="#{charge.variants[0].image.mini_url}")
+                    div.attr
+                      each color in charge.variants
+                        img(src="#{color.option_values[0].image.mini_url}")
+                    div.title #{charge.name}
+                    div.description #{charge.description}
+                    div.btn 
+                      a(href="/products/#{charge.variants[0].sku}" target="_blank") BUY AT ANKER STORE
+          ul
+            each charge,index in data1
+                li
+                  div
+                    div.img
+                      img(src="#{charge.variants[0].image.mini_url}")
+                    div.attr
+                      each color in charge.variants
+                        img(src="#{color.option_values[0].image.mini_url}")
+                    div.title #{charge.name}
+                    div.description #{charge.description}
+                    div.btn 
+                      a(href="/products/#{charge.variants[0].sku}" target="_blank") BUY AT ANKER STORE
+          div.searchMore 
+            a(href="/search?label=Anker%20Store" target="_blank") Hot Sellers
+      div.rule1
+        div
+          div.ruleTitle Rules
+          ul
+            li No purchase necessary.
+            li Earn Anker Dollars from 20th June to 26th June.
+            li Anker Dollars are valid until 27th July .
+            li New users must link their social media.
+            li Participants will each receive 1 Anker Dollar for every friend referred.
+            li Your Anker Dollars will be bound to your account as a coupon on June 28th.
+            li You can check your Anker Dollars via your profile page or the Anker Store payment page.
+            li Anker Dollars are only valid for orders fulfilled by the Anker Store, it is not valid for orders fulfilled by any other online or offline store.
+            li Anker Dollars can only be used in a single order.
+            li Fake referrals are considered cheating. Users suspected of cheating will lose their Anker Dollars.
+            li Only one account sign-up per person.
+            li Anker reserves the right of final explanation on the giveaway.
+            li US only.
+
+
+
+
+    include ../../views/footer
+    include ../../views/includes/analytics.jade

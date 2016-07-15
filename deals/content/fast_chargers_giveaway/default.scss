@@ -1,0 +1,451 @@
+
+body{
+	margin:0;
+	padding:0;
+	color:#3d3938;
+	font-size:14px;
+	font-family:Whitney,Helvetica,Arial,sans-serif;
+}
+.fast{
+	.bg{
+		img{
+			width:100%;
+		}
+	}
+	.page1{
+		max-width:1200px;
+		margin:-33rem auto 0 auto;
+		padding-bottom:6rem;
+		h4{
+			text-align:center;
+			font-size:36px;
+			font-weight:normal;
+			font-style:oblique;
+		}
+		.big{
+			font-size:48px;
+			color:#00a7e1;
+		}
+		h5{
+			font-size:16px;
+			padding:0;
+			margin:.5rem 0;
+		}
+		ul,li{
+			margin:0;
+			padding:0;
+		}
+		.btn{
+			display:inline-block;
+			color:white;
+			text-align:center;
+			background-color:#00a7e1;
+			padding:.5rem 0;
+			width:250px;
+		}
+		.ml100{
+			margin-left:100px;
+		}
+		.left{
+			width:600px;
+			display:inline-block;
+			vertical-align:top;
+			.login{
+				margin-bottom:2rem;
+			}
+			.winner{
+				border:1px solid #00a7e1;
+				.timer{
+					text-align:center;
+					font-size:87px;
+					color:#00a7e1;
+					border-bottom:1px dashed #b5b5b5;
+				}
+				.winnerlist{
+					display: -webkit-flex; /* Safari */
+  				display: flex;
+  				font-size:13px;
+  				>div{
+  					flex:1;
+  					-webkit-flex:1;
+  				}
+  				.iconfont{
+  					font-size:32px;
+  					cursor:pointer;
+  					line-height:63px;
+  				}
+				}
+				ul{
+					width:1000000px;
+					transform:translate3d(-0,0,0);
+					position:relative;
+				}
+				li{
+					list-style:none;
+					display:inline-block;
+					width:178px;
+					padding:1rem 0;
+				}
+			}
+		}
+		.right{
+			display:inline-block;
+			vertical-align:bottom;
+			padding:0 4rem;
+			position:relative;
+			width:488px;
+			li{
+				line-height:1.5rem;
+				font-size:13px;
+			}
+			.shareDiv{
+				margin-top:1.5rem;
+				.share{
+					background-color:#598cc9;
+					display:inline-block;
+					margin-top:.5rem;
+					text-align:center;
+					width:3rem;
+					height:3rem;
+					line-height:3rem;
+					border-radius:1.5rem;
+					color:white;
+					cursor:pointer;
+					a{
+						color:white;
+					}
+				}
+				.facebook{
+						background-color:#3a589a;
+						margin-left:1rem;
+						cursor:pointer;
+				}
+				.google{
+					margin-left:1rem;
+					background-color:#e14929;
+					i{
+						font-size:1.7rem;
+					}
+				}
+				.iconfont{
+					font-size:1.5rem;
+				}
+			}
+		}
+	}
+	.title{
+		text-align:center;
+		h4{
+			font-size:36px;
+			font-style:oblique;
+			font-weight:normal;
+			margin:1rem 0;
+		}
+		.big{
+			font-size:48px;
+			color:#00a7e1;
+		}
+		p{
+			font-size:13px;
+			margin:.5rem 0;
+		}
+	}
+	.page2{
+		background-image:url(./images/bg1.jpg);
+		height:1330px;
+		background-size:100% 100%;
+		>div{
+			max-width:1200px;
+			margin: 0 auto;
+			padding:2rem 0;
+		}
+	}
+	.chargeList{
+		margin:0;
+		padding:0;
+		li{
+			list-style:none;
+			display:inline-block;
+			width:23%;
+			background-color:white;
+			text-align:center;
+			position:relative;
+			height:440px;
+			vertical-align:top;
+			margin-top:4rem;
+			.bigImg{
+				width:80%;
+				margin-top:10%;
+			}
+			.info{
+				border-right:1px solid #e5e5e5;
+				height:100%;
+			}
+			.infoRight{
+				border:none;
+			}
+			.btn{
+				background-color:#00a2e1;
+				color:white;
+				display:inline-block;
+				padding:.5rem 2rem;
+				
+			}
+			.btnmr{
+				margin-left:-276px;
+			}
+			.add{
+				position:absolute;
+				top:50%;
+				right:-14px;
+				z-index:10;
+				img{
+					width:28px;
+				}
+			}
+			.code{
+				margin:1rem 0;
+				p{
+					margin:0;
+					padding:0;
+					font-size:18px;
+					color:#00a2e1;
+				}
+			}
+			.name{
+				margin:.5rem 0;
+				font-size:18px;
+				font-weight:bold;
+			}
+			.desc{
+				font-size:18px;
+			}
+			.hot{
+				position:absolute;
+				top:-.5rem;
+				left:0;
+				z-index:10;
+				width:100px;
+				height:36px;
+				background-image:url(./images/type.png);
+				background-size:100% 100%;
+				font-size:20px;
+				color:white;
+				line-height:36px;
+				font-style:oblique;
+			}
+			.price{
+				color:#00a2e1;
+				font-size:36px;
+				margin:1rem 0;
+			}
+		}
+		.rightLi{
+			margin-right:8%;
+		}
+	}
+	.page3{
+		background-color:#dadada;
+		>div{
+			max-width:1200px;
+			margin: 0 auto;
+			padding:2rem 0;
+			li{
+				width:22.75%;
+				margin-right:3%;
+			}
+			.hot{
+				background-image:url(./images/zk.png);
+				width:140px;
+				top:-.8rem;
+			}
+			.oldprice{
+				font-size:1.2rem;
+				color:black;
+				text-decoration:line-through;
+				margin-right:.3rem;
+			}
+			.rightLi{
+				margin-right:0;
+			}
+		}
+	}
+	@media only screen and (max-width: 1024px) {
+		.page1{
+			margin:-26rem 1rem 0 1rem;
+			.left{
+				width:auto;
+				display:block;
+				.winner{
+					position:relative;
+				}
+			}
+			.right{
+				padding:0 0 0 2rem;
+				margin-top:1rem;
+			}
+		}
+		.chargeList{
+			li{
+				height:365px;
+				.price{
+					font-size:28px;
+				}
+				.desc{
+					font-size:16px;
+				}
+				.name{
+					font-size:16px;
+				}
+				.code{
+					p{
+						font-size:14px;
+					}
+				}
+				.add{
+					right:-10px;
+					img{
+						width:20px;
+					}
+				}
+				.newprice{
+					font-size:24px;
+				}
+			}
+		}
+		.page2{
+			height:1025px;
+			>div{
+				margin:0 1rem;
+			}
+		}
+		.page3{
+			>div{
+				margin:0 1rem;
+			}
+		}
+	}
+	@media only screen and (max-width: 768px) {
+		.page1{
+			margin:-19rem 1rem 0 1rem;
+		}
+		.chargeList{
+			li{
+				height:350px;
+			}
+		}
+	}
+	@media only screen and (max-width: 767px) {
+		.page1{
+			margin:-8rem auto 0 auto;
+			.left{
+				width:auto;
+				display:block;
+				margin:0 1rem;
+				.winner{
+					.timer{
+						font-size:32px;
+					}
+				}
+			}
+			h4{
+				font-size:18px;
+			}
+			.big{
+				font-size:24px;
+			}
+			.right{
+				padding:0 0 0 2rem;
+				margin-top:1rem;
+				width:auto;
+				h5{
+					margin:.5rem 0;
+				}
+			}
+			.btn{
+				display:block;
+				width:auto;
+				margin: 1rem;
+			}
+			.btnmr{
+				
+			}
+			.ml100{
+				margin-left:1rem;
+			}
+		}
+		.chargeList{
+			li{
+				width:50%;
+				height:330px;
+			}
+			.rightLi{
+				margin-right:0;
+			}
+		}
+		.page2{
+			height:auto;
+			>div{
+				margin:0 1rem;
+			}
+		}
+		.title{
+			h4{
+				font-size:18px;
+			}
+			.big{
+				font-size:24px;
+			}
+		}
+		.chargeList{
+			li{
+				.name,.desc{
+					font-size:13px;
+				}
+				.price{
+					font-size:26px;
+				}
+				
+				.hot{
+					font-size:16px;
+				}
+				.btn{
+					font-size:13px;
+				}
+				.code{
+					p{
+						font-size:13px;
+					}
+				}
+			}
+		}
+		.page3{
+			>div{
+				margin:0 1rem;
+				.oldprice{
+					font-size:13px;
+				}
+				.newprice{
+					font-size:16px;
+				}
+				li{
+					width:47%;
+					height:310px;
+				}
+				li:nth-child(2n){
+					margin-right:0;
+					margin-left:3%;
+				}
+			}
+		}
+	}
+	@media only screen and (max-width: 320px) {
+		.chargeList{
+			li{
+				.price{
+					font-size:39px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,95 @@
+doctype html
+html
+  head
+    title= title
+    meta(name="viewport", content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no")
+    link(href="#{config.staticRoot}deals/public/css/global.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/content/anker_arsenal/default.css?#{verson}", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/header.css", rel="stylesheet")
+    link(href="#{config.staticRoot}deals/public/css/dialog.css", rel="stylesheet")
+    script(src="#{config.staticRoot}deals/public/javascript/fastclick.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.min.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.cookie.js")
+    script(src="#{config.staticRoot}deals/public/javascript/jquery.rotate.min.js")
+    script(src="#{config.staticRoot}deals/public/javascript/dialog.js")
+    script(src="#{config.staticRoot}deals/public/javascript/comm.js")
+    - var ogUrl = `${origin}/deals/anker_arsenal${invitation_code && '?ic='+invitation_code || ''}`;
+    - var ogTitle = "Anker | Father’s Day";
+    - var ogDesc = "Grab the perfect Father’s Day gift at the perfect price with Anker. Plus a giveaway featuring $1000 plane tickets and hundreds of gadgets. Click here to learn more. ";
+    - var ogImg = `${origin}/deals/content/anker_arsenal/images/facebookShare.jpg?verson=1`;
+    - var twDesc = `So @AnkerOfficial have some great #FathersDayTech discounts right now & they’re giving out $1000 plane tickets!?`;
+    - var twImg = `${origin}/deals/content/anker_arsenal/images/twitterShare.jpg?verson=1`;
+    <meta name="fb:app_id" content="#{config.FB_APP_ID}" />
+    meta(name="og:url", content=ogUrl)
+    meta(name="og:title", content=ogTitle)
+    meta(name="og:description", content=ogDesc)
+    meta(name="og:image", content=ogImg)
+    meta(name="twitter:card", content="summary_large_image")
+    meta(name="twitter:site", content="@Ankerofficial")
+    meta(name="twitter:title", content=ogTitle)
+    meta(name="twitter:description", content=`${twDesc} ${ogUrl}`)
+    meta(name="twitter:image", content=twImg)
+    meta(name="twitter:url", content=ogUrl)
+    script.
+      var config = !{JSON.stringify(config)};
+      var invitation_code = "!{invitation_code}";
+      var origin = "!{origin}/deals/fatheanker_arsenalrs_day";
+      var twshare = "!{twDesc}";
+      var nowDate = !{nowDate};
+    script(src="#{config.staticRoot}deals/content/anker_arsenal/default.js")
+  body
+    include ../../views/header
+    div.arsenal
+      div.banner
+        img(src="#{config.staticRoot}deals/content/anker_arsenal/images/bg.jpg?#{verson}")
+      div.content
+        div.charges
+          div
+            div.topContent
+              div
+                h3 Anker Quick Charge
+                p Phone charging is arguably the peskiest daily task, but Qualcomm Technologies is constantly innovating to bring phones and tablets a superior charging experience. We started with Qualcomm Quick Charge 1.0, which introduced our first fast charging solution, able to charge up to 40% faster than conventional charging. Quick Charge 2.0 followed a year later, increasing the charge time advantage up to 75%, as well as introducing an array of compatible accessories including wall adapters, car adapters, and power banks.
+              div
+                img(src="#{config.staticRoot}deals/content/anker_arsenal/images/iq.jpg?#{verson}")
+            ul.chargeList
+               each charge,index in data.charegrs
+                  li
+                    div.info
+                      img(src='#{charge.imgurl}').bigImg
+                      div.name !{charge.name ? charge.name : "&nbsp;"}
+                      div.desc !{charge.desc || '&nbsp;'}
+                      a(href="#{amazonTag ? charge.amazonUrl.replace(/&tag=[^&]+/, '&tag=' + amazonTag) : charge.amazonUrl}", target='_blank').btn BUY AT AMAZON
+        div.charges.usbc
+          div
+            div.topContent
+              div
+                h3 Anker USB-C
+                p Phone charging is arguably the peskiest daily task, but Qualcomm Technologies is constantly innovating to bring phones and tablets a superior charging experience. We started with Qualcomm Quick Charge 1.0, which introduced our first fast charging solution, able to charge up to 40% faster than conventional charging. Quick Charge 2.0 followed a year later, increasing the charge time advantage up to 75%, as well as introducing an array of compatible accessories including wall adapters, car adapters, and power banks.
+              div
+                img(src="#{config.staticRoot}deals/content/anker_arsenal/images/iq.jpg?#{verson}")
+            ul.chargeList
+               each charge,index in data.usbc
+                  li
+                    div.info
+                      img(src='#{charge.imgurl}').bigImg
+                      div.name !{charge.name ? charge.name : "&nbsp;"}
+                      div.desc !{charge.desc || '&nbsp;'}
+                      a(href="#{amazonTag ? charge.amazonUrl.replace(/&tag=[^&]+/, '&tag=' + amazonTag) : charge.amazonUrl}", target='_blank').btn BUY AT AMAZON
+        div.charges
+          div
+            div.topContent
+              div
+                h3 Anker PowerIQ
+                p Phone charging is arguably the peskiest daily task, but Qualcomm Technologies is constantly innovating to bring phones and tablets a superior charging experience. We started with Qualcomm Quick Charge 1.0, which introduced our first fast charging solution, able to charge up to 40% faster than conventional charging. Quick Charge 2.0 followed a year later, increasing the charge time advantage up to 75%, as well as introducing an array of compatible accessories including wall adapters, car adapters, and power banks.
+              div
+                img(src="#{config.staticRoot}deals/content/anker_arsenal/images/iq.jpg?#{verson}")
+            ul.chargeList
+               each charge,index in data.powerIQ
+                  li
+                    div.info
+                      img(src='#{charge.imgurl}').bigImg
+                      div.name !{charge.name ? charge.name : "&nbsp;"}
+                      div.desc !{charge.desc || '&nbsp;'}
+                      a(href="#{amazonTag ? charge.amazonUrl.replace(/&tag=[^&]+/, '&tag=' + amazonTag) : charge.amazonUrl}", target='_blank').btn BUY AT AMAZON
+    include ../../views/footer
+    include ../../views/includes/analytics.jade

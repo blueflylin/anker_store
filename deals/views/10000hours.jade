@@ -5,8 +5,8 @@ html
     title #{title}
     meta(name="viewport", content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no")
     meta(name="keywords", content="#{keywords}")
-    link(href="/deals/css/global.css", rel="stylesheet")
-    link(href="/deals/css/10000hours.css", rel="stylesheet")
+    link(href="/deals/public/css/global.css", rel="stylesheet")
+    link(href="/deals/public/css/10000hours.css", rel="stylesheet")
     if test
       script.
         alert(window.screen.width +':'+ window.innerWidth)
@@ -21,7 +21,7 @@ html
     div(class="#{country}").TenThousandHours
       header.header
         a.logo(href="/")
-          img(src='/deals/images/logo.png' alt="Anker")
+          img(src='/deals/public/images/logo.png' alt="Anker")
         if country != 'us'
           p.brand America’s Leading USB Charging Brand
         div.country#j-country
@@ -37,15 +37,15 @@ html
 
       section.section.sec1#sec1
         div.clock
-          img(src='/deals/images/10000hours/sec1/clock1.png')
-          img(src='/deals/images/10000hours/sec1/clock2.png')
+          img(src='/deals/public/images/10000hours/sec1/clock1.png')
+          img(src='/deals/public/images/10000hours/sec1/clock2.png')
         div.wrap.text
           p.slogan.zFadeInDown !{data.sec1.slogan}
           h2.main.zFadeInDown !{data.sec1.main_title}
           p.sub.zFadeIn !{data.sec1.sub_title}
 
       section.section.sec2#sec2
-        img(src='/deals/images/10000hours/sec2/sec2Bg.png').bg
+        img(src='/deals/public/images/10000hours/sec2/sec2Bg.png').bg
         div.wrap
           h2 !{data.sec2.title}
           p.bc !{ data.sec2.desc}
@@ -112,25 +112,25 @@ html
               a(href="#video4" data-v="video4").j-ga
             div(id="video1").tabItem.active
               p.tc.mt10 #{data.sec6.list[0]}
-              img(src='/deals/images/10000hours/video/v1_1.png')
-              img(src='/deals/images/10000hours/video/v1_2.png')
-              img(src='/deals/images/10000hours/video/v1_3.png')
+              img(src='/deals/public/images/10000hours/video/v1_1.png')
+              img(src='/deals/public/images/10000hours/video/v1_2.png')
+              img(src='/deals/public/images/10000hours/video/v1_3.png')
             div(id="video2").tabItem
               p.tc.mt10 #{data.sec6.list[1]}
-              img(src="/deals/images/10000hours/video/#{country == 'jp' ? 'vd2__jp' : 'video2'}/p1.png" id="imgVideo1" data-max="42")
+              img(src="/deals/public/images/10000hours/video/#{country == 'jp' ? 'vd2__jp' : 'video2'}/p1.png" id="imgVideo1" data-max="42")
             div(id="video3").tabItem
               p.tc.mt10 #{data.sec6.list[2]}
-              img(src='/deals/images/10000hours/video/video4/p1.png' id="imgVideo3" data-max="10")
+              img(src='/deals/public/images/10000hours/video/video4/p1.png' id="imgVideo3" data-max="10")
             div(id="video4").tabItem
               p.tc.mt10 #{data.sec6.list[3]}
-              img(src='/deals/images/10000hours/video/video3/p1.png' id="imgVideo4" data-max="26")
+              img(src='/deals/public/images/10000hours/video/video3/p1.png' id="imgVideo4" data-max="26")
 
       section.section.sec7#sec7
         div.wrap
           h2 !{data.sec7.title}
           p.bc !{data.sec7.desc}
           p.tac
-            img(src='/deals/images/10000hours/sec7/centif.png' ).w800.mt50
+            img(src='/deals/public/images/10000hours/sec7/centif.png' ).w800.mt50
 
       section.section.sec8#sec8
         div.wrap
@@ -165,15 +165,15 @@ html
                   p !{series.desc}
                   case series.title
                     when 'PowerCore+'
-                      img(src="/deals/images/10000hours/powercore.png")
+                      img(src="/deals/public/images/10000hours/powercore.png")
                     when 'PowerCore'
-                      img(src="/deals/images/10000hours/powercore.png")
+                      img(src="/deals/public/images/10000hours/powercore.png")
                     when 'PowerPort'
-                      img(src="/deals/images/10000hours/powerport.png")
+                      img(src="/deals/public/images/10000hours/powerport.png")
                     when 'PowerDrive'
-                      img(src="/deals/images/10000hours/powerdrive.png")
+                      img(src="/deals/public/images/10000hours/powerdrive.png")
                     when 'PowerLine'
-                      img(src="/deals/images/10000hours/powerline.png")
+                      img(src="/deals/public/images/10000hours/powerline.png")
                 ul
                   - var keys = country != 'us' ? '' : JSON.stringify({key: affiliate.key, tag: affiliate.val});
                   - var specLink = country == 'us' && ['PowerCore+', 'PowerCore'].indexOf(series.title) >= 0 ? 'j-spec' : '';
@@ -185,7 +185,7 @@ html
                     - var btn_class = item.btn ? '' : (item.price ? 'active' : 'disable');
                     li
                       a(class="#{specLink}" target="_blank" data-keys="#{keys}" href="#{item.url ? (affiliate ? affiliate.format(affiliate.key, affiliate.val, item.url) : item.url) : ''}")
-                        img(src="/deals/images/10000hours/prod/#{item.img}")
+                        img(src="/deals/public/images/10000hours/prod/#{item.img}")
                         p.pName !{item.name} #{specLink}
                         if item.desc
                           p.desc !{item.desc}
@@ -199,6 +199,6 @@ html
       script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js")
       script.
         window.jQuery || document.write('<script src="//cdn.staticfile.org/jquery/2.1.4/jquery.min.js"><\/script>');
-      script(src="/deals/javascript/10000hours.js?1.js")
+      script(src="/deals/public/javascript/10000hours.js?1.js")
     include ./includes/analytics.jade
     include ./includes/popup.jade
